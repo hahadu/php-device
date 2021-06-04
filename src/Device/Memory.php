@@ -85,8 +85,7 @@ class Memory
     }
 
     private function meminfo(){
-        if (($str = @file("/proc/meminfo")) !== false){
-            $str = implode("", $str);
+        if (($str = @file_get_contents("/proc/meminfo")) !== false){
 
             preg_match_all("/MemTotal\s{0,}\:+\s{0,}([\d\.]+).+?MemFree\s{0,}\:+\s{0,}([\d\.]+).+?Cached\s{0,}\:+\s{0,}([\d\.]+).+?SwapTotal\s{0,}\:+\s{0,}([\d\.]+).+?SwapFree\s{0,}\:+\s{0,}([\d\.]+)/s", $str, $buf);
             preg_match_all("/Buffers\s{0,}\:+\s{0,}([\d\.]+)/s", $str, $buffers);

@@ -13,7 +13,7 @@ class Device
     private $list = [];
     private $cpu;
     private $mem;
-    private $version = 'V1.0.0';
+    private $version = 'V1.0.1';
 
 
     public function __construct(){

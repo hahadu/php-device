@@ -132,12 +132,9 @@ class CPU
 
     private function cpu_info(){
         if (($str = @file_get_contents("/proc/cpuinfo")) !== false){
-            dump($str);
             @preg_match_all("/model\s+name\s{0,}\:+\s{0,}([\w\s\)\(\@.-]+)([\r\n]+)/s", $str, $model_name);
             @preg_match_all("/bogomips\s{0,}\:+\s{0,}([\d\.]+)[\r\n]+/", $str, $bogomips);
             @preg_match_all("/model\s{0,}\:+\s{0,}([\w\s\)\(\@.-]+)([\r\n]+)/s", $str, $model);
-            dump($model);
-            dump($model_name);
             $this->cpu_info['model_name'] = $model_name;
             $this->cpu_info['bogomips'] = $bogomips;
             $this->cpu_info['model'] = $model;
